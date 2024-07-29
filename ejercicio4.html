@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+Ejercicio 4: Manipulación Compleja del DOM 
+
+Crea un archivo HTML con una lista desordenada (<ul>) y un botón. 
+Usa JavaScript para agregar un nuevo elemento de lista (<li>) con el texto "Nuevo ítem" cada vez que se haga clic en el botón. 
+Cada elemento de lista debe tener un botón para eliminarlo de la lista. 
+ -->
+
+    <div id="app">
+
+        <button id="agregarItem">Agreagar item</button>
+    </div>
+
+
+</body>
+
+<script>
+    function addLiItem(){
+        const li = document.createElement("li")
+        li.textContent = "Nuevo item"
+        const delButton = document.createElement("button")
+        delButton.addEventListener("click", () => {
+            console.log("borrado")
+            delButton.parentElement.remove()
+        })
+        delButton.textContent = "borrar"
+        li.appendChild(delButton)
+        
+        const app = document.getElementById("app")
+        app.appendChild(li)
+    }
+    
+    document.getElementById("agregarItem").addEventListener("click", () => {
+        addLiItem()
+    })
+
+</script>
+
+</html>
